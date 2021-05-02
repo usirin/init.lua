@@ -1,0 +1,56 @@
+{
+  "tsserver.npm": "/Users/ussirin/.nvm/versions/node/v15.12.0/bin/npm",
+  "tsserver.typingsCacheLocation": "~/.cache/coc-tsserver",
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
+  "tsserver.maxTsServerMemory": 12288,
+  "tsserver.formatOnType": true,
+  "tsserver.watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriorityPolling"
+  },
+
+  "typescript.format.enabled": true,
+  "typescript.suggestionActions.enabled": true,
+
+  "tslint.autoFixOnSave": true,
+  "tslint.suppressWhileTypeErrorsPresent": false,
+
+  "eslint.autoFixOnSave": false,
+  "eslint.format.enable": true,
+  "eslint.quiet": false,
+
+  "codeLens.enable": false,
+  "codeLens.separator": "‣",
+
+  "list.indicator": "❯",
+
+  "diagnostic.enable": true,
+  "diagnostic.errorSign": "⨯",
+  "diagnostic.maxWindowHeight": 8,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.enableSign": true,
+  "diagnostic.enableHighlightLineNumber": true,
+
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.formatOnSaveFiletypes": ["go", "typescript", "typescriptreact", "javascript", "cs", "javascriptreact", "lua"],
+
+  "prettier.disableSuccessMessage": false,
+
+  "signature.preferShownAbove": true,
+  "suggest.maxCompleteItemCount": 250,
+
+  "javascript.validate.enable": true,
+
+	"Lua.diagnostics.globals": ["vim"],
+
+  "languageserver": {
+		"efm": {
+			"command": "efm-langserver",
+			"args": [],
+			"filetypes": ["lua"]
+		}
+  }
+}
