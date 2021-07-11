@@ -10,7 +10,7 @@ local fileinfo = require("galaxyline.provider_fileinfo")
 local icons = require("galaxyline.provider_fileinfo").define_file_icon()
 -- local lsp_status = require('lsp-status')
 
-local colors = utils.colors.gotham
+local colors = utils.colors.bleed_purple
 
 icons["man"] = {colors.green, ""}
 
@@ -40,7 +40,6 @@ local substitute_home = function(path) return vim.fn.substitute(path, vim.fn.exp
 
 local shrink_path = function(path)
   local at = utils.at
-
   if at(path, 1) == "." then
     return at(path, 1) .. at(path, 2)
   else
@@ -92,7 +91,7 @@ gls.left = {
     FileName = {
       provider = function() return fish_like_path(vim.fn.expand("%:p"), 2) end,
       condition = condition.buffer_not_empty,
-      highlight = {colors.bgreen, colors.status_bg}
+      highlight = {colors.white, colors.status_bg}
     }
   }, {Blank = {provider = function() return "" end, highlight = {colors.black, colors.status_bg}}}
 }

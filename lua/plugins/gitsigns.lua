@@ -1,4 +1,6 @@
-vim.cmd([[highlight GitSignsChange guifg=yellow guibg=#11151c]])
+-- vim.cmd([[highlight GitSignsChange guifg=yellow guibg=#11151c]])
+
+-- require("gitsigns").setup()
 
 require("gitsigns").setup {
   signs = {

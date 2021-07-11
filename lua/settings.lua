@@ -17,6 +17,7 @@ vim.o.cmdheight = 2
 vim.o.shortmess = vim.o.shortmess .. "c"
 
 -- vim.o.re=0
+vim.cmd([[set re=0]])
 
 vim.o.splitright = true
 vim.o.splitbelow = true
@@ -38,6 +39,7 @@ vim.bo.tabstop = 2
 vim.bo.shiftwidth = 2
 vim.cmd("set ts=2") -- Insert 2 spaces for a tab
 vim.cmd("set sw=2") -- Change the number of space characters inserted for indentation
+vim.cmd([[set smartindent]])
 vim.o.shiftround = true
 -- vim.o.diffopt = vim.o.diffopt .. "vertical"
 

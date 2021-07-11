@@ -27,7 +27,9 @@ return require("packer").startup(function(use)
 
   use {"glepnir/galaxyline.nvim", branch = "main", requires = {"kyazdani42/nvim-web-devicons", opt = true}}
 
-  use "HerringtonDarkholme/yats.vim"
+  -- use "HerringtonDarkholme/yats.vim"
+  use "leafgarland/typescript-vim"
+  use "MaxMEllon/vim-jsx-pretty"
   use "jparise/vim-graphql"
   use "fatih/vim-go"
   use "norcalli/nvim-colorizer.lua"
@@ -48,7 +50,13 @@ return require("packer").startup(function(use)
   -- }
 
   use "rktjmp/lush.nvim"
-  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+	use "nvim-treesitter/playground"
   use "whatyouhide/vim-gotham"
   use "arzg/vim-colors-xcode"
+	use "pineapplegiant/spaceduck"
+
+	use "usirin/lucidity"
+	use "~/dev/usirin/bleed-purple.nvim"
+	-- use "usirin/bleed-purple.nvim"
 end)

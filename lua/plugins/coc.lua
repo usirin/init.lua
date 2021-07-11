@@ -24,7 +24,7 @@ _G.s_tab_complete = function()
   end
 end
 
-vim.g.coc_node_path = "/Users/ussirin/.nvm/versions/node/v15.12.0/bin/node"
+vim.g.coc_node_path = "/Users/umutsirin/.nvm/versions/node/v15.12.0/bin/node"
 vim.g.coc_enable_locationlist = 1
 vim.g.coc_global_extensions = {
   "coc-json", "coc-marketplace", "coc-prettier", "coc-snippets", "coc-syntax", "coc-tslint-plugin", "coc-tsserver",
