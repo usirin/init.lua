@@ -1,5 +1,3 @@
-vim.cmd([[highlight GitSignsChange guifg=yellow guibg=#11151c]])
-
 require("gitsigns").setup {
   signs = {
     add = {hl = "GitSignsAdd", text = "·", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn"},
@@ -38,3 +36,4 @@ require("gitsigns").setup {
   use_internal_diff = true -- If luajit is present
 }
 
+-- vim.cmd([[highlight GitSignsChange guifg=yellow guibg=#11151c]])

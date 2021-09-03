@@ -47,10 +47,25 @@
 	"Lua.diagnostics.globals": ["vim"],
 
   "languageserver": {
-		"efm": {
-			"command": "efm-langserver",
-			"args": [],
-			"filetypes": ["lua"]
-		}
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["lua"],
+      "settings": {
+        "languages": {
+          "lua": {
+            "formatCommand": "lua-format -i --single-quote-to-double-quote --no-break-after-operator --no-use-tab --indent-width=2 --tab-width=2 --column-limit=120 --break-after-table-lb --align-table-field",
+            "formatStdin": true
+          }
+        }
+      }
+    },
+    "golangci-lint-languageserver": {
+      "command": "golangci-lint-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "command": ["golangci-lint", "--out-format", "json"]
+      }
+    }
   }
 }

@@ -1,3 +1,5 @@
+local hsl_convert = require("lush.vivid.hsl.convert")
+local format = string.format
 local utils = {}
 
 utils.keymap = function(mode, lhs, rhs, opts)
@@ -7,6 +9,9 @@ utils.keymap = function(mode, lhs, rhs, opts)
 end
 
 utils.exec = function(command) vim.api.nvim_exec(command, false) end
+utils.hsl_to_hex = function(h, s, l) return hsl_convert.hsl_to_hex({h = h, s = s, l = l}) end
+
+local hsl = utils.hsl_to_hex
 
 utils.colors = {
   gotham = {
@@ -26,10 +31,31 @@ utils.colors = {
     bcyan = "#599caa",
     white = "#99d1ce",
     bwhite = "#d3ebe9"
+  },
+  bleed_purple = {
+    black = hsl(240, 7, 13),
+    bblack = hsl(240, 7, 16),
+    red = hsl(1, 83, 40),
+    bred = hsl(1, 83, 50),
+    bgreen = hsl(156, 100, 48),
+    green = hsl(172, 100, 34),
+    yellow = hsl(40, 100, 74),
+    byellow = hsl(40, 100, 84),
+    blue = hsl(220, 100, 56),
+    bblue = hsl(220, 100, 66),
+    magenta = hsl(264, 100, 64),
+    bmagenta = hsl(264, 100, 72),
+    cyan = hsl(180, 98, 26),
+    bcyan = hsl(180, 100, 32),
+    white = hsl(240, 7, 84),
+    bwhite = hsl(240, 7, 94)
   }
 }
 utils.colors.gotham.status_bg = "#11171c"
 utils.colors.gotham.dimmed_text = "#212c36"
+
+utils.colors.bleed_purple.status_bg = utils.colors.bleed_purple.black
+utils.colors.bleed_purple.dimmed_text = hsl(240, 7, 25)
 
 utils.highlight = function(group, fg, bg, gui)
   local cmd = string.format("highlight %s guifg=%s guibg=%s", group, fg, bg)
@@ -155,5 +181,49 @@ utils.slice_table = function(obj, start, finish)
 
   return output
 end
+
+local substitute_home = function(path) return vim.fn.substitute(path, vim.fn.expand("$HOME"), "~", "") end
+utils.substitute_home = substitute_home
+
+local shrink_path = function(path)
+  local at = utils.at
+
+  if at(path, 1) == "." then
+    return at(path, 1) .. at(path, 2)
+  else
+    return at(path, 1)
+  end
+end
+
+utils.shrink_path = shrink_path
+
+local fish_like_path = function(path, level)
+  if path == "" then return "[No Name]" end
+
+  local paths = vim.fn.split(substitute_home(path), "/")
+
+  if #paths == 0 then
+    return "/"
+  elseif #paths == 1 then
+    if paths[1] == "~" then
+      return "~/"
+    else
+      return path
+    end
+  end
+
+  local after = utils.slice_table(paths, -(level))
+  local before = utils.slice_table(paths, 1, -(level))
+
+  for key, value in pairs(before) do before[key] = utils.shrink_path(value) end
+
+  return vim.fn.join(before, "/") .. "/" .. vim.fn.join(after, "/")
+end
+
+utils.fish_like_path = fish_like_path
+
+utils.command = function(name, fn) vim.cmd(format("command! %s %s", name, fn)) end
+
+utils.lua_command = function(name, fn) utils.command(name, "lua " .. fn) end
 
 return utils

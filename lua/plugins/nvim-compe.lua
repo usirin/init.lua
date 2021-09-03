@@ -16,7 +16,7 @@ require"compe".setup {
   max_menu_width = 100,
   documentation = true,
 
-  source = {path = true, nvim_lsp = true, buffer = true, calc = true, nvim_lua = true}
+  source = {path = true, buffer = true, calc = true, nvim_lua = true, nvim_lsp = true}
 }
 
 local t = function(str) return vim.api.nvim_replace_termcodes(str, true, true, true) end

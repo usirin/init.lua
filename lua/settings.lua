@@ -33,7 +33,7 @@ vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
-vim.bo.expandtab = true
+vim.cmd([[set expandtab]])
 vim.bo.tabstop = 2
 vim.bo.shiftwidth = 2
 vim.cmd("set ts=2") -- Insert 2 spaces for a tab
