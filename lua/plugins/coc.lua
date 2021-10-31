@@ -24,7 +24,7 @@ _G.s_tab_complete = function()
   end
 end
 
-vim.g.coc_node_path = "/Users/ussirin/.nvm/versions/node/v15.12.0/bin/node"
+vim.g.coc_node_path = "/Users/ussirin/.nvm/versions/node/v16.8.0/bin/node"
 vim.g.coc_enable_locationlist = 1
 vim.g.coc_global_extensions = {
   "coc-json", "coc-marketplace", "coc-prettier", "coc-snippets", "coc-syntax", "coc-tslint-plugin", "coc-tsserver",
@@ -43,7 +43,9 @@ u.keymap("n", "gd", "<Plug>(coc-definition)", {noremap = false})
 u.keymap("n", "gf", "<Plug>(coc-implementation)", {noremap = false})
 u.keymap("n", "<C-g>f", ":vsplit<cr><Plug>(coc-implementation)", {noremap = false})
 -- u.keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-u.keymap("n", "gr", "<Plug>(coc-references)", {noremap = false})
+u.keymap("n", "gR", "<Plug>(coc-references)", {noremap = false})
+u.keymap("n", "gr", ":Telescope coc references<CR>", {noremap = false})
+
 u.keymap("n", "K", ":call CocAction(\"doHover\")<CR>", {noremap = false})
 u.keymap("n", "]q", "<Plug>(coc-diagnostic-next)", {noremap = false})
 u.keymap("n", "[q", "<Plug>(coc-diagnostic-prev)", {noremap = false})

@@ -1,5 +1,4 @@
 require("plugins.setup")
-
 require("keymappings")
 
 require("settings")
@@ -27,4 +26,5 @@ require("plugins.gitsigns")
 require("plugins.indent-guides")
 require("plugins.colorizer")
 require("plugins.vim-go")
+require("plugins.hop")
 

@@ -2,9 +2,10 @@
 vim.o.termguicolors = true
 vim.cmd("syntax on")
 vim.o.mouse = "a"
-vim.o.visualbell = true
+vim.o.visualbell = false
 vim.o.errorbells = false
 vim.o.showcmd = true
+vim.o.belloff = "all"
 
 vim.o.showmode = false
 vim.o.swapfile = false

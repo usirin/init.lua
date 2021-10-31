@@ -1,6 +1,7 @@
 local utils = require("utils")
+local Telescope = require("telescope")
 
-require("telescope").setup {
+Telescope.setup {
   defaults = {
     vimgrep_arguments = {
       "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case"
@@ -11,11 +12,11 @@ require("telescope").setup {
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "ascending",
-    layout_strategy = "vertical",
+    layout_strategy = "horizontal",
     layout_config = {
       height = 0.75,
-      width = 0.6,
-      horizontal = {mirror = false, prompt_position = "top", preview_width = 80, preview_cutoff = 210},
+      width = 0.75,
+      horizontal = {mirror = false, prompt_position = "top", preview_width = 100, preview_cutoff = 210},
       vertical = {mirror = true}
     },
     file_sorter = require"telescope.sorters".get_fuzzy_file,
@@ -33,8 +34,12 @@ require("telescope").setup {
     grep_previewer = require"telescope.previewers".vim_buffer_vimgrep.new,
     qflist_previewer = require"telescope.previewers".vim_buffer_qflist.new
 
-  }
+  },
+  extensions = {fzy_native = {override_generic_sorter = false, override_file_sorter = true}}
 }
+
+Telescope.load_extension("coc")
+Telescope.load_extension("fzy_native")
 
 utils.keymap("n", "<C-p>", ":ProjectRootExe Telescope find_files<cr>")
 utils.keymap("n", "<C-t>", ":Telescope git_files previewer=false<cr>")
@@ -42,3 +47,4 @@ utils.keymap("n", "<C-f>f", ":<C-u>ProjectRootExe Telescope live_grep<cr>")
 utils.keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 utils.keymap("n", "<leader>b",
              ":lua require('telescope.builtin').buffers({layout_strategy='horizontal', layout_config={width=0.8}})<cr>")
+utils.keymap("n", "<leader>q", "<cmd>Telescope quickfix<cr>")

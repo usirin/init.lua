@@ -4,6 +4,7 @@ local map = utils.keymap
 vim.g.mapleader = ","
 
 map("n", "<leader>ev", ":e ~/.config/nvim/init.lua<CR>")
+map("n", "<leader>ed", ":e ~/dotfiles/install.sh<CR>")
 
 map("i", "jj", "<Esc>")
 map("t", "jj", [[<C-\><C-n>]])
@@ -33,3 +34,7 @@ map("n", "]t", ":tabnext<cr>")
 map("n", "t]", ":tabnext<cr>")
 map("n", "[T", ":tabfirst<cr>")
 map("n", "]T", ":tablast<cr>")
+
+map("n", "]f", ":cnext<cr>")
+map("n", "[f", ":cprev<cr>")
+

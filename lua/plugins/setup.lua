@@ -19,6 +19,8 @@ return require("packer").startup(function(use)
   use "windwp/nvim-autopairs"
   use "mhinz/vim-startify"
   use "tpope/vim-surround"
+  use "tpope/vim-fugitive"
+  use "tpope/vim-rhubarb"
   -- use "glepnir/indent-guides.nvim"
   use "Yggdroot/indentLine"
   -- use {"blackCauldron7/surround.nvim"}
@@ -27,11 +29,7 @@ return require("packer").startup(function(use)
   use "kyazdani42/nvim-tree.lua"
 
   -- use {"glepnir/galaxyline.nvim", branch = "main", requires = {"kyazdani42/nvim-web-devicons", opt = true}}
-  use {
-    --
-    "hoob3rt/lualine.nvim",
-    requires = {"kyazdani42/nvim-web-devicons", opt = true}
-  }
+  use {"hoob3rt/lualine.nvim", requires = {"kyazdani42/nvim-web-devicons", opt = true}}
 
   -- use "HerringtonDarkholme/yats.vim"
   use "leafgarland/typescript-vim"
@@ -39,9 +37,14 @@ return require("packer").startup(function(use)
   use "jparise/vim-graphql"
   use "fatih/vim-go"
   use "norcalli/nvim-colorizer.lua"
+  use {"phaazon/hop.nvim", as = "hop"}
 
   -- use {"junegunn/fzf.vim", requires = {"junegunn/fzf"}, run = function() vim.fn["fzf#install"]() end}
   use {"neoclide/coc.nvim", branch = "release"}
+  use {"nvim-telescope/telescope.nvim", requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}}
+  use "nvim-telescope/telescope-fzy-native.nvim"
+  use "fannheyward/telescope-coc.nvim"
+
   use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
 
   use "neovim/nvim-lspconfig"
@@ -51,8 +54,6 @@ return require("packer").startup(function(use)
 
   use "jose-elias-alvarez/null-ls.nvim"
   use "jose-elias-alvarez/nvim-lsp-ts-utils"
-
-  use {"nvim-telescope/telescope.nvim", requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}}
 
   use "rktjmp/lush.nvim"
   use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
