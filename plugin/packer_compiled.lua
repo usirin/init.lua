@@ -77,6 +77,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
+  hop = {
+    loaded = true,
+    path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/hop"
+  },
   indentLine = {
     loaded = true,
     path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/indentLine"
@@ -157,6 +161,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["telescope-coc.nvim"] = {
+    loaded = true,
+    path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/telescope-coc.nvim"
+  },
+  ["telescope-fzy-native.nvim"] = {
+    loaded = true,
+    path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -177,6 +189,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/vim-colors-xcode"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
   ["vim-go"] = {
     loaded = true,
     path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/vim-go"
@@ -196,6 +212,10 @@ _G.packer_plugins = {
   ["vim-projectroot"] = {
     loaded = true,
     path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/vim-projectroot"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "/Users/ussirin/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
   },
   ["vim-startify"] = {
     loaded = true,

@@ -42,7 +42,7 @@ Telescope.load_extension("coc")
 Telescope.load_extension("fzy_native")
 
 utils.keymap("n", "<C-p>", ":ProjectRootExe Telescope find_files<cr>")
-utils.keymap("n", "<C-t>", ":Telescope git_files previewer=false<cr>")
+utils.keymap("n", "<C-t>", ":Telescope git_files<cr>")
 utils.keymap("n", "<C-f>f", ":<C-u>ProjectRootExe Telescope live_grep<cr>")
 utils.keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 utils.keymap("n", "<leader>b",
