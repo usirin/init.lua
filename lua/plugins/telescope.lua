@@ -12,12 +12,12 @@ Telescope.setup {
     initial_mode = "insert",
     selection_strategy = "reset",
     sorting_strategy = "ascending",
-    layout_strategy = "horizontal",
+    layout_strategy = "vertical",
     layout_config = {
       height = 0.75,
       width = 0.75,
       horizontal = {mirror = false, prompt_position = "top", preview_width = 100, preview_cutoff = 210},
-      vertical = {mirror = true}
+      vertical = {mirror = true, prompt_position = "top"}
     },
     file_sorter = require"telescope.sorters".get_fuzzy_file,
     file_ignore_patterns = {},
@@ -46,5 +46,6 @@ utils.keymap("n", "<C-t>", ":Telescope git_files<cr>")
 utils.keymap("n", "<C-f>f", ":<C-u>ProjectRootExe Telescope live_grep<cr>")
 utils.keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 utils.keymap("n", "<leader>b",
-             ":lua require('telescope.builtin').buffers({layout_strategy='horizontal', layout_config={width=0.8}})<cr>")
+             ":lua require('telescope.builtin').buffers({layout_config={width=0.8}})<cr>")
 utils.keymap("n", "<leader>q", "<cmd>Telescope quickfix<cr>")
+utils.keymap("n", "<leader>s", "<cmd>Telescope git_status<cr>")
