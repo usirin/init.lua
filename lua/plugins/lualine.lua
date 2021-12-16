@@ -42,8 +42,9 @@ require"lualine".setup {
     icons_enabled = true,
     -- theme = "horizon",
     theme = theme,
-    component_separators = {"", ""},
-    section_separators = {"", ""},
+    -- theme = "auto",
+    component_separators = {left = "", right = ""},
+    section_separators = {left = "", right = ""},
     disabled_filetypes = {}
   },
   sections = {
