@@ -1,5 +1,14 @@
 local utils = require("utils")
 
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.proto = {
+  install_info = {
+    url = "~/.config/tree-sitter/tree-sitter-proto", -- local path or git repo
+    files = {"src/parser.c"}
+  },
+  filetype = "proto", -- if filetype does not agrees with parser name
+}
+
 require("nvim-treesitter.configs").setup {
   highlight = {enable = true},
 

@@ -41,9 +41,12 @@ Telescope.setup {
 Telescope.load_extension("coc")
 Telescope.load_extension("fzy_native")
 
-utils.keymap("n", "<C-p>", ":ProjectRootExe Telescope find_files<cr>")
+utils.keymap("n", "<C-p>", ":<C-u>ProjectRootExe Telescope find_files<cr>")
 utils.keymap("n", "<C-t>", ":Telescope git_files<cr>")
-utils.keymap("n", "<C-f>f", ":<C-u>ProjectRootExe Telescope live_grep<cr>")
+utils.keymap("n", "<leader>t", ":Telescope git_files<cr>")
+utils.keymap("n", "<C-f>", ":<C-u>ProjectRootExe Telescope live_grep<cr>")
+utils.keymap("n", "<leader>f", ":<C-u>ProjectRootExe Telescope live_grep<cr>")
+utils.keymap("n", "<C-/>", ":<C-u>ProjectRootExe Telescope live_grep<cr>")
 utils.keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>")
 utils.keymap("n", "<leader>b",
              ":lua require('telescope.builtin').buffers({layout_config={width=0.8}})<cr>")

@@ -45,6 +45,8 @@ u.keymap("n", "<C-g>f", ":vsplit<cr><Plug>(coc-implementation)", {noremap = fals
 -- u.keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 u.keymap("n", "gR", "<Plug>(coc-references)", {noremap = false})
 u.keymap("n", "gr", ":Telescope coc references<CR>", {noremap = false})
+u.keymap("n", "<C-s>", ":Telescope coc document_symbols<CR>", {noremap = false})
+u.keymap("n", "<C-x>", ":Telescope coc diagnostics<CR>", {noremap = false})
 
 u.keymap("n", "K", ":call CocAction(\"doHover\")<CR>", {noremap = false})
 u.keymap("n", "]q", "<Plug>(coc-diagnostic-next)", {noremap = false})

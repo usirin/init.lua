@@ -55,3 +55,10 @@ vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
 
 -- color columns
 vim.cmd([[autocmd BufNewFile,BufReadPost *.js,*.ts,*.tsx setl colorcolumn=80,120]])
+
+-- undodir
+vim.cmd([[
+  set undodir=$HOME/.config/nvim/temp_dirs/undodir
+  set undofile
+]])
+

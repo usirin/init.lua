@@ -51,7 +51,7 @@
       "command": "golangci-lint-langserver",
       "filetypes": ["go"],
       "initializationOptions": {
-        "command": ["golangci-lint", "--out-format", "json"]
+        "command": ["golangci-lint", "run", "--out-format", "json"]
       }
     }
   }
