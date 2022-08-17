@@ -11,6 +11,11 @@
 --   even_colors = {fg = "#0e1418", bg = "#0e1418"},
 --   odd_colors = {fg = "#0e1216", bg = "#0e1216"}
 -- })
-vim.g.indentLine_leadingSpaceEnabled = 1
-vim.g.indentLine_leadingSpaceChar = "·"
+-- vim.g.indentLine_leadingSpaceEnabled = 1
+-- vim.g.indentLine_leadingSpaceChar = "·"
 vim.g.indentLine_char = "│"
+vim.g.vim_json_syntax_conceal = 0
+vim.g.vim_json_conceal=0
+-- vim.g.indentLine_setConceal = 0
+--
+vim.g.indentLine_fileTypeExclude = {"json", "md", "markdown"}
