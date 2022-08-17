@@ -45,7 +45,7 @@ u.keymap("n", "<C-g>f", ":vsplit<cr><Plug>(coc-implementation)", {noremap = fals
 -- u.keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 u.keymap("n", "gR", "<Plug>(coc-references)", {noremap = false})
 u.keymap("n", "gr", ":Telescope coc references<CR>", {noremap = false})
-u.keymap("n", "<C-s>", ":Telescope coc document_symbols<CR>", {noremap = false})
+u.keymap("n", "<leader>d", ":Telescope coc document_symbols<CR>", {noremap = false})
 u.keymap("n", "<C-x>", ":Telescope coc diagnostics<CR>", {noremap = false})
 
 u.keymap("n", "K", ":call CocAction(\"doHover\")<CR>", {noremap = false})
@@ -54,6 +54,7 @@ u.keymap("n", "[q", "<Plug>(coc-diagnostic-prev)", {noremap = false})
 u.keymap("n", "<leader>w", "<Plug>(coc-codeaction)", {noremap = false})
 u.keymap("v", "<leader>w", "<Plug>(coc-codeaction-selected)", {noremap = false})
 u.keymap("n", "<leader>rn", "<Plug>(coc-rename)", {noremap = false})
+u.keymap("n", "<leader>p", ":CocCommand editor.action.formatDocument<CR>", {noremap = false})
 
 -- Highlight the symbol and its references when holding the cursor.
 vim.cmd([[autocmd CursorHold * silent call CocActionAsync('highlight')]])
