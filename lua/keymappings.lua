@@ -13,6 +13,7 @@ map("n", "<leader><space>", ":nohlsearch<cr>")
 map("n", "<leader><leader>", "<C-^>")
 
 map("n", ";", ":")
+map("v", ";", ":")
 map("n", "<Enter>", "o<Esc>")
 map("n", "<space>", "i<space><C-c>l")
 
