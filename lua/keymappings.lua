@@ -38,4 +38,3 @@ map("n", "]T", ":tablast<cr>")
 
 map("n", "]f", ":cnext<cr>")
 map("n", "[f", ":cprev<cr>")
-

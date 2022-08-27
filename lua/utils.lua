@@ -2,14 +2,14 @@ local hsl_convert = require("lush.vivid.hsl.convert")
 local format = string.format
 local utils = {}
 
-utils.keymap = function(mode, lhs, rhs, opts)
-  local options = {noremap = true}
+utils.keymap = function(mode, key, action, opts)
+  local options = { noremap = true }
   if opts then options = vim.tbl_extend("force", options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  vim.api.nvim_set_keymap(mode, key, action, options)
 end
 
 utils.exec = function(command) vim.api.nvim_exec(command, false) end
-utils.hsl_to_hex = function(h, s, l) return hsl_convert.hsl_to_hex({h = h, s = s, l = l}) end
+utils.hsl_to_hex = function(h, s, l) return hsl_convert.hsl_to_hex({ h = h, s = s, l = l }) end
 
 local hsl = utils.hsl_to_hex
 
@@ -243,5 +243,14 @@ utils.fish_like_path = fish_like_path
 utils.command = function(name, fn) vim.cmd(format("command! %s %s", name, fn)) end
 
 utils.lua_command = function(name, fn) utils.command(name, "lua " .. fn) end
+
+utils.print = function(...)
+  local args = { n = select("#", ...), ... }
+  for i = 1, args.n do
+    args[i] = vim.inspect(args[i])
+  end
+  print(unpack(args))
+end
+
 
 return utils

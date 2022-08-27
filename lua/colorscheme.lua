@@ -1,4 +1,4 @@
--- vim.cmd([[set bg=light]])
+vim.cmd([[set bg=light]])
 vim.cmd([[set bg=dark]])
 vim.cmd([[colorscheme bleed-purple]])
 

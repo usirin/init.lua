@@ -1,4 +1,8 @@
+require("impatient")
+
 require("plugins/setup")
+
+
 require("keymappings")
 
 require("settings")
@@ -19,10 +23,10 @@ require("plugins/nvim-tree")
 require("plugins/nvim-comment")
 require("plugins/nvim-autopairs")
 require("plugins/coc")
-require("plugins/lualine")
 require("plugins/gitsigns")
-require("plugins/indent-guides")
 require("plugins/colorizer")
 require("plugins/vim-go")
-require("plugins/hop")
-require("plugins/telescope")
+require("plugins.hop").setup()
+require("plugins.telescope").setup()
+require("plugins.lualine").setup()
+require("plugins.indent-blankline").setup()

@@ -5,14 +5,11 @@
   "tsserver.trace.server": "verbose",
   "tsserver.maxTsServerMemory": 12288,
   "tsserver.formatOnType": true,
-  "tsserver.watchOptions": {
-    "watchFile": "useFsEvents",
-    "watchDirectory": "useFsEvents",
-    "fallbackPolling": "dynamicPriorityPolling"
-  },
 
   "typescript.format.enabled": true,
   "typescript.suggestionActions.enabled": true,
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
 
   "tslint.autoFixOnSave": true,
   "tslint.suppressWhileTypeErrorsPresent": false,
@@ -46,15 +43,20 @@
 
   "javascript.validate.enable": true,
 
+  "sumneko-lua.enableNvimLuaDev": true,
+
   "Lua.completion.enable": true,
   "Lua.diagnostics.globals": ["vim"],
-  "Lua.workspace.library": {
-    "/opt/homebrew/Cellar/neovim/HEAD-d7a7315/share/nvim/runtime": true,
-    "/opt/homebrew/Cellar/neovim/HEAD-d7a7315/share/nvim/runtime/ua": true,
-    "/opt/homebrew/Cellar/neovim/HEAD-d7a7315/share/nvim/runtime/lua/vim": true,
-    "/opt/homebrew/Cellar/neovim/HEAD-d7a7315/share/nvim/runtime/lua/vim/lsp": true
-  },
+  "Lua.workspace.library": [
+    "/opt/homebrew/Cellar/neovim/HEAD-d7a7315/share/nvim/runtime",
+    "/opt/homebrew/Cellar/neovim/HEAD-d7a7315/share/nvim/runtime/lua",
+    "/opt/homebrew/Cellar/neovim/HEAD-d7a7315/share/nvim/runtime/lua/vim",
+    "/opt/homebrew/Cellar/neovim/HEAD-d7a7315/share/nvim/runtime/lua/vim/lsp"
+  ],
   "Lua.format.enable": true,
+  "Lua.hint.enable": false,
+  "Lua.completion.displayContext": 10,
+  "Lua.telemetry.enable": false,
 
   "languageserver": {
     "golangci-lint-languageserver": {
@@ -64,5 +66,26 @@
         "command": ["golangci-lint", "run", "--out-format", "json"]
       }
     }
+  },
+  "dialog.floatBorderHighlight": "CocFloatingBorder",
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "shadow": false
+  },
+  "suggest.pumFloatConfig": {
+    "border": true,
+    "rounded": true,
+    "shadow": false
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "shadow": false
+  },
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "shadow": false
   }
 }
