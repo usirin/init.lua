@@ -1,40 +1,46 @@
 local utils = require("utils")
 local map = utils.keymap
 
-vim.g.mapleader = ","
+local setup = function()
+  vim.g.mapleader = ","
 
-map("n", "<leader>ev", ":e ~/.config/nvim/init.lua<CR>")
-map("n", "<leader>ed", ":e ~/dotfiles/install.sh<CR>")
+  map("n", "<leader>ev", ":e ~/.config/nvim/init.lua<CR>")
+  map("n", "<leader>ed", ":e ~/dotfiles/install.sh<CR>")
 
-map("i", "jj", "<Esc>")
-map("t", "jj", [[<C-\><C-n>]])
+  map("i", "jj", "<Esc>")
+  map("t", "jj", [[<C-\><C-n>]])
 
-map("n", "<leader><space>", ":nohlsearch<cr>")
-map("n", "<leader><leader>", "<C-^>")
+  map("n", "<leader><space>", ":nohlsearch<cr>")
+  map("n", "<leader><leader>", "<C-^>")
 
-map("n", ";", ":")
-map("v", ";", ":")
-map("n", "<Enter>", "o<Esc>")
-map("n", "<space>", "i<space><C-c>l")
+  map("n", ";", ":")
+  map("v", ";", ":")
+  map("n", "<Enter>", "o<Esc>")
+  map("n", "<space>", "i<space><C-c>l")
 
--- Better split switching
-map("n", "<C-J>", "<C-W>j")
-map("n", "<C-K>", "<C-W>k")
-map("n", "<C-H>", "<C-W>h")
-map("n", "<C-L>", "<C-W>l")
+  -- Better split switching
+  map("n", "<C-J>", "<C-W>j")
+  map("n", "<C-K>", "<C-W>k")
+  map("n", "<C-H>", "<C-W>h")
+  map("n", "<C-L>", "<C-W>l")
 
--- easy splits | for vertical _ for horizontal
-map("n", "<bar>", ":vsp<CR>")
-map("n", "_", [[Hmx``<C-w>szz<C-w><C-p>`x``<C-w><C-p>]])
+  -- easy splits | for vertical _ for horizontal
+  map("n", "<bar>", ":vsp<CR>")
+  map("n", "_", [[Hmx``<C-w>szz<C-w><C-p>`x``<C-w><C-p>]])
 
--- tabs
-map("n", "tt", ":tabe<cr>:Startify<cr>")
-map("n", "[t", ":tabprev<cr>")
-map("n", "t[", ":tabprev<cr>")
-map("n", "]t", ":tabnext<cr>")
-map("n", "t]", ":tabnext<cr>")
-map("n", "[T", ":tabfirst<cr>")
-map("n", "]T", ":tablast<cr>")
+  -- tabs
+  map("n", "tt", ":tabe<cr>:Startify<cr>")
+  map("n", "[t", ":tabprev<cr>")
+  map("n", "t[", ":tabprev<cr>")
+  map("n", "]t", ":tabnext<cr>")
+  map("n", "t]", ":tabnext<cr>")
+  map("n", "[T", ":tabfirst<cr>")
+  map("n", "]T", ":tablast<cr>")
 
-map("n", "]f", ":cnext<cr>")
-map("n", "[f", ":cprev<cr>")
+  map("n", "]f", ":cnext<cr>")
+  map("n", "[f", ":cprev<cr>")
+end
+
+return {
+  setup = setup
+}

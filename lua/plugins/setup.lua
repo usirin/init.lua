@@ -19,18 +19,16 @@ return require("packer").startup(function(use)
   use "terrortylor/nvim-comment"
   use "dbakker/vim-projectroot"
   use "windwp/nvim-autopairs"
-  use "mhinz/vim-startify"
+  -- use "mhinz/vim-startify"
   use "tpope/vim-surround"
   use "tpope/vim-fugitive"
   use "tpope/vim-rhubarb"
 
+  use "lukas-reineke/indent-blankline.nvim"
+
   use {
-    "lukas-reineke/indent-blankline.nvim",
-    -- opt = false,
-    -- config = function()
-    --   utils.print("blankline loaded from setup")
-    --
-    -- end
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
   use "kyazdani42/nvim-web-devicons"
@@ -59,10 +57,15 @@ return require("packer").startup(function(use)
 
   use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } }
 
-  use { "akinsho/toggleterm.nvim" }
+  use { "akinsho/toggleterm.nvim", tag = "v2.*" }
 
   use "rktjmp/lush.nvim"
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use "nvim-treesitter/playground"
   use "~/code/github.com/usirin/vim-bleed-purple"
+
+  -- use {
+  --   "usirin/bleed-purple.nvim",
+  --   branch = "phoenix",
+  -- }
 end)

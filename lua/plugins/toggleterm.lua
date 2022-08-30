@@ -1,5 +1,5 @@
 local setup = function()
-  require('nvim-autopairs').setup()
+  require "toggleterm".setup {}
 end
 
 return {
