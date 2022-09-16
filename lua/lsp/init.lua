@@ -1,4 +1,4 @@
-local lsp_status = require("lsp-status")
+local lsp_status = require "lsp-status"
 
 -- vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
 --   if err ~= nil or result == nil then return end
@@ -31,8 +31,8 @@ local on_attach = function(client, bufnr)
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
-  vim.cmd("command! LspFormattingSync lua vim.lsp.buf.formatting_sync()")
+  vim.cmd "command! LspFormatting lua vim.lsp.buf.formatting()"
+  vim.cmd "command! LspFormattingSync lua vim.lsp.buf.formatting_sync()"
   set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
   set_keymap("n", "gf", "<cmd>lua vim.lsp.buf.declaration()<CR>")
   set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
@@ -77,9 +77,9 @@ local on_attach = function(client, bufnr)
   end
 end
 
-require("lsp.lua")(on_attach, lsp_status.capabilities)
-require("lsp.efm")(on_attach, lsp_status.capabilities)
-require("lsp.tsserver")(on_attach, lsp_status.capabilities)
-require("lsp.null-ls")(on_attach, lsp_status.capabilities)
-require("lsp.gopls")(on_attach, lsp_status.capabilities)
-require("lsp.graphql")(on_attach, lsp_status.capabilities)
+require "lsp.lua"(on_attach, lsp_status.capabilities)
+require "lsp.efm"(on_attach, lsp_status.capabilities)
+require "lsp.tsserver"(on_attach, lsp_status.capabilities)
+require "lsp.null-ls"(on_attach, lsp_status.capabilities)
+require "lsp.gopls"(on_attach, lsp_status.capabilities)
+require "lsp.graphql"(on_attach, lsp_status.capabilities)

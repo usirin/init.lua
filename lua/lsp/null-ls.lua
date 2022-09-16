@@ -1,10 +1,10 @@
-local null_ls = require("null-ls")
+local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 return function(on_attach, capabilities)
-  null_ls.setup({
+  null_ls.setup {
     sources = {
-      b.formatting.prettier.with({
+      b.formatting.prettier.with {
         filetypes = {
           "graphql",
           "gql",
@@ -21,10 +21,10 @@ return function(on_attach, capabilities)
           "yaml",
           "markdown",
         },
-      }),
+      },
       --
     },
-  })
+  }
 
-  require("lspconfig")["null-ls"].setup({ on_attach = on_attach, capabilities = capabilities })
+  require("lspconfig")["null-ls"].setup { on_attach = on_attach, capabilities = capabilities }
 end

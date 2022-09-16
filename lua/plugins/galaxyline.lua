@@ -1,10 +1,10 @@
-local utils = require("utils")
-local gl = require("galaxyline")
+local utils = require "utils"
+local gl = require "galaxyline"
 local gls = gl.section
-local condition = require("galaxyline.condition")
+local condition = require "galaxyline.condition"
 -- local vcs = require("galaxyline.provider_vcs")
-local buffer = require("galaxyline.provider_buffer")
-local fileinfo = require("galaxyline.provider_fileinfo")
+local buffer = require "galaxyline.provider_buffer"
+local fileinfo = require "galaxyline.provider_fileinfo"
 -- local diagnostic = require('galaxyline.provider_diagnostic')
 -- local lspclient = require('galaxyline.provider_lsp')
 local icons = require("galaxyline.provider_fileinfo").define_file_icon()
@@ -61,7 +61,7 @@ gls.left = {
   {
     FileName = {
       provider = function()
-        return fish_like_path(vim.fn.expand("%:p"), 2)
+        return fish_like_path(vim.fn.expand "%:p", 2)
       end,
       condition = condition.buffer_not_empty,
       highlight = { colors.white, colors.status_bg },
@@ -199,7 +199,7 @@ gls.short_line_left = {
           end
         else
           if fileinfo.get_current_file_name() ~= "" then
-            return string.format("  %s %s ", fileinfo.get_file_icon(), fish_like_path(vim.fn.expand("%:p"), 2))
+            return string.format("  %s %s ", fileinfo.get_file_icon(), fish_like_path(vim.fn.expand "%:p", 2))
           end
         end
       end,

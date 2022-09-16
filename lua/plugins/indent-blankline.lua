@@ -1,5 +1,5 @@
 local setup = function()
-  require("indent_blankline").setup({
+  require("indent_blankline").setup {
     -- char = "│",
     char_blankline = "┆",
     show_current_context = true,
@@ -12,7 +12,7 @@ local setup = function()
       "man",
       "startify",
     },
-  })
+  }
 end
 
 return {

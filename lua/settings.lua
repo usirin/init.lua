@@ -1,7 +1,7 @@
 local setup = function()
   -- getmetatable("").__index = function(str, i) return string.sub(str, i, i) end
   vim.o.termguicolors = true
-  vim.cmd("syntax on")
+  vim.cmd "syntax on"
   vim.o.mouse = "a"
   vim.o.visualbell = false
   vim.o.errorbells = false
@@ -35,33 +35,33 @@ local setup = function()
   vim.o.ignorecase = true
   vim.o.smartcase = true
 
-  vim.cmd([[set expandtab]])
+  vim.cmd [[set expandtab]]
   vim.bo.tabstop = 2
   vim.bo.shiftwidth = 2
-  vim.cmd("set ts=2") -- Insert 2 spaces for a tab
-  vim.cmd("set sw=2") -- Change the number of space characters inserted for indentation
+  vim.cmd "set ts=2" -- Insert 2 spaces for a tab
+  vim.cmd "set sw=2" -- Change the number of space characters inserted for indentation
   vim.o.shiftround = true
   -- vim.o.diffopt = vim.o.diffopt .. "vertical"
 
   vim.o.scrolloff = 5
-  vim.cmd("set inccommand=split") -- Make substitution work in realtime
-  vim.cmd([[set list listchars=tab:\ \ ,trail:·,nbsp:·]])
-  vim.cmd([[set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*]])
+  vim.cmd "set inccommand=split" -- Make substitution work in realtime
+  vim.cmd [[set list listchars=tab:\ \ ,trail:·,nbsp:·]]
+  vim.cmd [[set wildignore+=*/.git/*,*/.hg/*,*/.svn/*.,*/.DS_Store,*/node_modules/*]]
 
   -- set working directory to current buffer's directory
-  vim.cmd([[autocmd BufEnter * silent! lcd %:p:h]])
+  vim.cmd [[autocmd BufEnter * silent! lcd %:p:h]]
 
   -- remove whitespace on save
-  vim.cmd([[autocmd BufWritePre * :%s/\s\+$//e]])
+  vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e]]
 
   -- color columns
-  vim.cmd([[autocmd BufNewFile,BufReadPost *.js,*.ts,*.tsx setl colorcolumn=80,120]])
+  vim.cmd [[autocmd BufNewFile,BufReadPost *.js,*.ts,*.tsx setl colorcolumn=80,120]]
 
   -- undodir
-  vim.cmd([[
+  vim.cmd [[
     set undodir=$HOME/.config/nvim/temp_dirs/undodir
     set undofile
-  ]])
+  ]]
 end
 
 return {

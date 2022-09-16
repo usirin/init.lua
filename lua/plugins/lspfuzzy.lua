@@ -1,3 +1,3 @@
-local lspfuzzy = require("lspfuzzy")
+local lspfuzzy = require "lspfuzzy"
 
-lspfuzzy.setup({})
+lspfuzzy.setup {}

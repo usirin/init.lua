@@ -1,5 +1,5 @@
-local utils = require("utils")
-local lsp_status = require("lsp-status")
+local utils = require "utils"
+local lsp_status = require "lsp-status"
 
 --- Configure lsp-status.nvim.
 --- Currently supported configuration variables are:
@@ -15,7 +15,7 @@ local lsp_status = require("lsp-status")
 --- - `indicator_ok`: Symbol to show in `status` if there are no diagnostics. Default: '',
 --- - `spinner_frames`: Animation frames for progress spinner in `status`. Default: { '⣾', '⣽', '⣻', '⢿', '⡿', '⣟', '⣯', '⣷' },
 --- - `status_symbol`: Symbol to start the statusline segment in `status`. Default: ' 🇻',
-lsp_status.config({
+lsp_status.config {
   kind_labels = utils.kind_symbols,
   status_symbol = "",
   --   select_symbol = function(cursor_pos, symbol)
@@ -29,6 +29,6 @@ lsp_status.config({
   --     end
   --   end
   -- current_function = false
-})
+}
 
 lsp_status.register_progress()

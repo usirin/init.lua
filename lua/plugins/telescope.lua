@@ -1,8 +1,8 @@
-local utils = require("utils")
-local Telescope = require("telescope")
+local utils = require "utils"
+local Telescope = require "telescope"
 
 local setup_telescope = function()
-  Telescope.setup({
+  Telescope.setup {
     defaults = {
       vimgrep_arguments = {
         "rg",
@@ -17,9 +17,8 @@ local setup_telescope = function()
       },
       prompt_prefix = "❯ ",
       selection_caret = "❯ ",
-      entry_prefix = "  ",
-      initial_mode = "insert",
       sorting_strategy = "ascending",
+      scroll_strategy = "limit",
       layout_strategy = "vertical",
       layout_config = {
         height = 0.75,
@@ -27,21 +26,28 @@ local setup_telescope = function()
         horizontal = { mirror = false, prompt_position = "top", preview_cutoff = 120 },
         vertical = { mirror = true, prompt_position = "top" },
       },
-      winblend = 0,
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
       -- file_previewer = require"telescope.previewers".vim_buffer_cat.new,
     },
-    extensions = { fzy_native = { override_generic_sorter = false, override_file_sorter = true } },
-  })
+    extensions = {
+      coc = {
+        prefer_locations = true,
+      },
+      fzy_native = {
+        override_generic_sorter = true,
+        override_file_sorter = true,
+      },
+    },
+  }
 end
 
 local setup_extensions = function()
-  Telescope.load_extension("coc")
-  Telescope.load_extension("fzy_native")
+  Telescope.load_extension "coc"
+  Telescope.load_extension "fzy_native"
 end
 
 local setup_autocmds = function()
-  vim.cmd("autocmd User TelescopePreviewerLoaded setlocal number")
+  vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
 end
 
 local setup_keymaps = function()

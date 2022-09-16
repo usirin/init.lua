@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require "utils"
 
 utils.keymap("n", "<C-p>", ":ProjectRootExe Files<CR>")
 utils.keymap("n", "<C-t>", ":GFiles<CR>")

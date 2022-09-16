@@ -1,5 +1,5 @@
-local lspconfig = require("lspconfig")
-local configs = require("lspconfig/configs")
+local lspconfig = require "lspconfig"
+local configs = require "lspconfig/configs"
 
 return function(on_attach, capabilities)
   if not lspconfig.golangcilsp then
@@ -13,6 +13,6 @@ return function(on_attach, capabilities)
   end
 
   -- setup lsp
-  lspconfig.gopls.setup({ on_attach = on_attach, capabilities = capabilities })
-  lspconfig.golangcilsp.setup({ filetypes = { "go" } })
+  lspconfig.gopls.setup { on_attach = on_attach, capabilities = capabilities }
+  lspconfig.golangcilsp.setup { filetypes = { "go" } }
 end

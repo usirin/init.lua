@@ -1,5 +1,5 @@
-local lspconfig = require("lspconfig")
-local ts_utils = require("nvim-lsp-ts-utils")
+local lspconfig = require "lspconfig"
+local ts_utils = require "nvim-lsp-ts-utils"
 
 local ts_utils_settings = {
   debug = true,
@@ -15,7 +15,7 @@ local ts_utils_settings = {
 local cmd = { "typescript-language-server", "--stdio" }
 
 return function(on_attach, capabilities)
-  lspconfig.tsserver.setup({
+  lspconfig.tsserver.setup {
     cmd = cmd,
     on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
@@ -26,5 +26,5 @@ return function(on_attach, capabilities)
     end,
     capabilities = capabilities,
     -- root_dir = root_pattern(".git")
-  })
+  }
 end

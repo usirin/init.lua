@@ -1,5 +1,5 @@
 local setup = function()
-  require("toggleterm").setup({})
+  require("toggleterm").setup {}
 end
 
 return {

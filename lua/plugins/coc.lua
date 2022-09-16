@@ -1,4 +1,4 @@
-local u = require("utils")
+local u = require "utils"
 
 local setup_coc = function()
   -- vim.g.coc_node_path = "/Users/umutsirin/.nvm/versions/node/v16.13.1/bin/node"
@@ -21,16 +21,16 @@ local setup_coc = function()
     "coc-css",
   }
   -- Highlight the symbol and its references when holding the cursor.
-  vim.cmd([[autocmd CursorHold * silent call CocActionAsync('highlight')]])
+  vim.cmd [[autocmd CursorHold * silent call CocActionAsync('highlight')]]
 end
 
 local setup_keymaps = function()
-  vim.cmd([[
+  vim.cmd [[
     function! CheckBackspace() abort
       let col = col('.') - 1
       return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
-  ]])
+  ]]
 
   u.keymap(
     "i",

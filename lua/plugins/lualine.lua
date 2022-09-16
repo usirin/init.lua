@@ -1,4 +1,4 @@
-local utils = require("utils")
+local utils = require "utils"
 -- local lsp_status = require("lsp-status")
 local fish_like_path = utils.fish_like_path
 local colors = utils.colors.bleed_purple
@@ -12,7 +12,7 @@ local file_status = function(is_modified)
 end
 
 local filename = function()
-  local path = fish_like_path(vim.fn.expand("%:p"), 2)
+  local path = fish_like_path(vim.fn.expand "%:p", 2)
   local status = file_status(vim.bo.modified)
 
   if #status == 0 then
@@ -24,7 +24,7 @@ end
 
 local fishpath = function(level)
   return function()
-    local path = fish_like_path(vim.fn.expand("%:p"), level)
+    local path = fish_like_path(vim.fn.expand "%:p", level)
     local status = file_status(vim.bo.modified)
 
     if #status == 0 then
@@ -77,7 +77,7 @@ local get_theme = function(bg)
 end
 
 local setup = function()
-  require("lualine").setup({
+  require("lualine").setup {
     options = {
       icons_enabled = true,
       globalstatus = true,
@@ -145,13 +145,13 @@ local setup = function()
       lualine_z = { "branch" },
     },
     extensions = {},
-  })
+  }
 end
 
-vim.cmd([[
+vim.cmd [[
 autocmd ColorScheme * lua require'plugins.lualine'.setup()
 autocmd OptionSet background lua require'plugins.lualine'.setup()
-]])
+]]
 
 return {
   setup = setup,
