@@ -1,18 +1,18 @@
 local utils = require("utils")
 
 local setup_proto = function()
-  local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+  local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
   parser_config.proto = {
     install_info = {
       url = "~/.config/tree-sitter/tree-sitter-proto", -- local path or git repo
-      files = { "src/parser.c" }
+      files = { "src/parser.c" },
     },
     filetype = "proto", -- if filetype does not agrees with parser name
   }
 end
 
 local setup_treesitter = function()
-  require("nvim-treesitter.configs").setup {
+  require("nvim-treesitter.configs").setup({
     highlight = { enable = true },
     query_linter = { enable = true, use_virtual_text = true, lint_events = { "BufWrite", "CursorHold" } },
     playground = {
@@ -30,10 +30,10 @@ local setup_treesitter = function()
         unfocus_language = "F",
         update = "R",
         goto_node = "<cr>",
-        show_help = "?"
-      }
-    }
-  }
+        show_help = "?",
+      },
+    },
+  })
 end
 
 local setup_keymaps = function()
@@ -47,5 +47,5 @@ local setup = function()
 end
 
 return {
-  setup = setup
+  setup = setup,
 }

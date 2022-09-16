@@ -1,5 +1,5 @@
 local fn = vim.fn
-local path = require "phoenix.utils.path"
+local path = require("phoenix.utils.path")
 
 ---Checks if packer is installed in given path
 ---@param install_path string
@@ -27,11 +27,11 @@ local ensure_packer_installed = function(override_path)
   if not is_packer_installed(packer_path) then
     install_packer(packer_path)
     is_fresh_install = true
-    vim.cmd [[packadd packer.nvim]]
+    vim.cmd([[packadd packer.nvim]])
   end
 
   return {
-    is_fresh_install = is_fresh_install
+    is_fresh_install = is_fresh_install,
   }
 end
 
@@ -39,5 +39,5 @@ return {
   install_packer = install_packer,
   is_packer_installed = is_packer_installed,
   packer_path = default_packer_path,
-  ensure_packer_installed = ensure_packer_installed
+  ensure_packer_installed = ensure_packer_installed,
 }

@@ -29,7 +29,7 @@ local setup = function()
   map("n", "_", [[Hmx``<C-w>szz<C-w><C-p>`x``<C-w><C-p>]])
 
   -- tabs
-  map("n", "tt", ":tabe<cr>:Startify<cr>")
+  map("n", "tt", ":tabe<cr>:Alpha<cr>")
   map("n", "[t", ":tabprev<cr>")
   map("n", "t[", ":tabprev<cr>")
   map("n", "]t", ":tabnext<cr>")
@@ -42,5 +42,5 @@ local setup = function()
 end
 
 return {
-  setup = setup
+  setup = setup,
 }

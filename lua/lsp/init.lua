@@ -14,16 +14,20 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   underline = true,
   virtual_text = false,
   signs = true,
-  update_in_insert = false
+  update_in_insert = false,
 })
 
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 local on_attach = function(client, bufnr)
   lsp_status.on_attach(client)
 
-  local function set_keymap(mode, lhs, rhs) vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts) end
+  local function set_keymap(mode, lhs, rhs)
+    vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+  end
   -- local function set_option(...) vim.api.nvim_buf_set_option(bufnr, ..., opts) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  local function buf_set_option(...)
+    vim.api.nvim_buf_set_option(bufnr, ...)
+  end
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -46,24 +50,30 @@ local on_attach = function(client, bufnr)
   set_keymap("n", "<leader>c", [[<cmd>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>]])
 
   if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_exec([[
+    vim.api.nvim_exec(
+      [[
 		augroup LspAutocommands
 				autocmd! * <buffer>
 				autocmd BufWritePost <buffer> LspFormattingSync
 		augroup END
-		]], true)
+		]],
+      true
+    )
   end
 
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec([[
+    vim.api.nvim_exec(
+      [[
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorHold <buffer> lua require('lspsaga.diagnostic').show_line_diagnostics()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]], false)
+    ]],
+      false
+    )
   end
 end
 

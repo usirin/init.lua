@@ -1,7 +1,7 @@
 local setup = function()
-  require('nvim-autopairs').setup()
+  require("nvim-autopairs").setup()
 end
 
 return {
-  setup = setup
+  setup = setup,
 }

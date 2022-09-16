@@ -9,13 +9,13 @@ local ts_utils_settings = {
   eslint_enable_diagnostics = true,
   enable_formatting = false,
   formatter = "prettier",
-  update_imports_on_move = false
+  update_imports_on_move = false,
 }
 
-local cmd = {"typescript-language-server", "--stdio"}
+local cmd = { "typescript-language-server", "--stdio" }
 
 return function(on_attach, capabilities)
-  lspconfig.tsserver.setup {
+  lspconfig.tsserver.setup({
     cmd = cmd,
     on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
@@ -24,8 +24,7 @@ return function(on_attach, capabilities)
       ts_utils.setup(ts_utils_settings)
       ts_utils.setup_client(client)
     end,
-    capabilities = capabilities
+    capabilities = capabilities,
     -- root_dir = root_pattern(".git")
-  }
+  })
 end
-

@@ -1,6 +1,7 @@
 {
   "tsserver.npm": "/Users/ussirin/.nvm/versions/node/v16.8.0/bin/npm",
   "tsserver.typingsCacheLocation": "~/.cache/coc-tsserver",
+  "tsserver.useBatchedBufferSync": true,
   "tsserver.log": "verbose",
   "tsserver.trace.server": "verbose",
   "tsserver.maxTsServerMemory": 12288,
@@ -8,8 +9,8 @@
 
   "typescript.format.enabled": true,
   "typescript.suggestionActions.enabled": true,
-  "javascript.inlayHints.parameterTypes.enabled": true,
-  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.referencesCodeLens.enable": false,
+  "typescript.referencesCodeLens.showOnAllFunctions": false,
 
   "tslint.autoFixOnSave": true,
   "tslint.suppressWhileTypeErrorsPresent": false,
@@ -58,6 +59,8 @@
   "Lua.completion.displayContext": 10,
   "Lua.telemetry.enable": false,
 
+  "stylua.styluaPath": "/opt/homebrew/bin/stylua",
+
   "languageserver": {
     "golangci-lint-languageserver": {
       "command": "golangci-lint-langserver",
@@ -87,5 +90,12 @@
     "border": true,
     "rounded": true,
     "shadow": false
-  }
+  },
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
+  "typescript.inlayHints.variableTypes.enabled": true
 }

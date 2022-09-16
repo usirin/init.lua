@@ -1,4 +1,4 @@
-local u = require('utils')
+local u = require("utils")
 
 local setup_nvim_comment = function()
   require("nvim_comment").setup({
@@ -11,13 +11,13 @@ local setup_nvim_comment = function()
     -- Normal mode mapping left hand side
     line_mapping = "gcc",
     -- Visual/Operator mapping left hand side
-    operator_mapping = "gc"
+    operator_mapping = "gc",
   })
 end
 
 local setup_keymaps = function()
-  u.keymap('n', '<leader>a', 'gcc', { noremap = false })
-  u.keymap('v', '<leader>a', 'gcgv', { noremap = false })
+  u.keymap("n", "<leader>a", "gcc", { noremap = false })
+  u.keymap("v", "<leader>a", "gcgv", { noremap = false })
 end
 
 local setup = function()
@@ -26,5 +26,5 @@ local setup = function()
 end
 
 return {
-  setup = setup
+  setup = setup,
 }

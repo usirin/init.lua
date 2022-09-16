@@ -1,7 +1,6 @@
--- require("impatient")
+require("impatient")
 
 require("plugins/setup")
-
 
 require("keymappings").setup()
 require("settings").setup()

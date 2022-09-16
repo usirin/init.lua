@@ -1,11 +1,11 @@
 local get_config = function()
-  return require 'alpha.themes.startify'.config
+  return require("alpha.themes.startify").config
 end
 
 local setup = function()
-  require 'alpha'.setup(get_config())
+  require("alpha").setup(get_config())
 end
 
 return {
-  setup = setup
+  setup = setup,
 }

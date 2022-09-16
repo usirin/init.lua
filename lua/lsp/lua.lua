@@ -1,6 +1,6 @@
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 
-local USER = vim.fn.expand('$USER')
+local USER = vim.fn.expand("$USER")
 
 local sumneko_root_path = ""
 local sumneko_binary = ""
@@ -15,27 +15,25 @@ else
 end
 
 return function(on_attach, capabilities)
-  lspconfig.sumneko_lua.setup {
+  lspconfig.sumneko_lua.setup({
     on_attach = function(...)
       on_attach(...)
       vim.cmd([[autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)]])
     end,
     capabilities = capabilities,
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
     settings = {
       Lua = {
         runtime = {
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-          version = 'LuaJIT'
+          version = "LuaJIT",
         },
-        diagnostics = {globals = {'vim'}},
+        diagnostics = { globals = { "vim" } },
         workspace = {
           -- Make the server aware of Neovim runtime files
-          library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
-        }
-      }
-    }
-  }
-
+          library = { [vim.fn.expand("$VIMRUNTIME/lua")] = true, [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true },
+        },
+      },
+    },
+  })
 end
-

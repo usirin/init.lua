@@ -15,7 +15,7 @@
 -- vim.g.indentLine_leadingSpaceChar = "·"
 vim.g.indentLine_char = "│"
 vim.g.vim_json_syntax_conceal = 0
-vim.g.vim_json_conceal=0
+vim.g.vim_json_conceal = 0
 -- vim.g.indentLine_setConceal = 0
 --
-vim.g.indentLine_fileTypeExclude = {"json", "md", "markdown"}
+vim.g.indentLine_fileTypeExclude = { "json", "md", "markdown" }

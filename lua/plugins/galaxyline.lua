@@ -13,7 +13,7 @@ local icons = require("galaxyline.provider_fileinfo").define_file_icon()
 local colors = utils.colors.bleed_purple
 local fish_like_path = utils.fish_like_path
 
-icons["man"] = {colors.green, ""}
+icons["man"] = { colors.green, "" }
 
 local mode_colors = {
   n = colors.magenta,
@@ -34,7 +34,7 @@ local mode_colors = {
   rm = colors.cyan,
   ["r?"] = colors.cyan,
   ["!"] = colors.blue,
-  t = colors.blue
+  t = colors.blue,
 }
 
 gls.left = {
@@ -47,29 +47,36 @@ gls.left = {
         return "  " .. utils.get_mode(mode) .. " "
       end,
       condition = condition.buffer_not_empty,
-      highlight = {colors.blue, colors.status_bg, "bold"}
+      highlight = { colors.blue, colors.status_bg, "bold" },
       -- separator_highlight = {colors.magenta, colors.black}
-    }
-  }, {
+    },
+  },
+  {
     -- FileIcon = {
     --   provider = function() return string.format("  %s ", fileinfo.get_file_icon()) end,
     --   condition = condition.buffer_not_empty,
     --   highlight = {fileinfo.get_file_icon_color, colors.status_bg}
     -- }
-  }, {
+  },
+  {
     FileName = {
-      provider = function() return fish_like_path(vim.fn.expand("%:p"), 2) end,
+      provider = function()
+        return fish_like_path(vim.fn.expand("%:p"), 2)
+      end,
       condition = condition.buffer_not_empty,
-      highlight = {colors.white, colors.status_bg}
-    }
-  }, {
+      highlight = { colors.white, colors.status_bg },
+    },
+  },
+  {
     --
     Blank = {
       --
-      provider = function() return "" end,
-      highlight = {colors.black, colors.status_bg}
-    }
-  }
+      provider = function()
+        return ""
+      end,
+      highlight = { colors.black, colors.status_bg },
+    },
+  },
 }
 
 gls.right = {
@@ -150,34 +157,46 @@ gls.right = {
   --   },
   {
     FileType = {
-      provider = function() return string.format("  %s ", vim.bo.filetype) end,
-      condition = function() return buffer.get_buffer_filetype() ~= "" end,
-      highlight = {colors.yellow, colors.status_bg}
-    }
-  }, {
+      provider = function()
+        return string.format("  %s ", vim.bo.filetype)
+      end,
+      condition = function()
+        return buffer.get_buffer_filetype() ~= ""
+      end,
+      highlight = { colors.yellow, colors.status_bg },
+    },
+  },
+  {
     LineInfo = {
-      provider = function() return string.format(" %s ", fileinfo.line_column()) end,
-      highlight = {colors.dimmed_text, colors.bg}
-    }
-  }
+      provider = function()
+        return string.format(" %s ", fileinfo.line_column())
+      end,
+      highlight = { colors.dimmed_text, colors.bg },
+    },
+  },
 }
 
-gl.short_line_list = {"NvimTree", "help"}
+gl.short_line_list = { "NvimTree", "help" }
 gls.short_line_left = {
   {
     BufferIcon = {
       provider = function()
         local icon = buffer.get_buffer_type_icon()
-        if icon ~= nil then return string.format(" %s ", icon) end
+        if icon ~= nil then
+          return string.format(" %s ", icon)
+        end
       end,
-      highlight = {colors.white, colors.bblack}
-    }
-  }, {
+      highlight = { colors.white, colors.bblack },
+    },
+  },
+  {
     BufferName = {
       provider = function()
         if vim.fn.index(gl.short_line_list, vim.bo.filetype) ~= -1 then
           local filetype = vim.bo.filetype
-          if filetype == "NvimTree" then return " Explorer " end
+          if filetype == "NvimTree" then
+            return " Explorer "
+          end
         else
           if fileinfo.get_current_file_name() ~= "" then
             return string.format("  %s %s ", fileinfo.get_file_icon(), fish_like_path(vim.fn.expand("%:p"), 2))
@@ -185,8 +204,15 @@ gls.short_line_left = {
         end
       end,
       separator = "",
-      highlight = {colors.dimmed_text, colors.status_bg}
-    }
-  }, {BufferBlank = {provider = function() return "" end, highlight = {colors.black, colors.status_bg}}}
+      highlight = { colors.dimmed_text, colors.status_bg },
+    },
+  },
+  {
+    BufferBlank = {
+      provider = function()
+        return ""
+      end,
+      highlight = { colors.black, colors.status_bg },
+    },
+  },
 }
-
