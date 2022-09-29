@@ -1,5 +1,4 @@
 local utils = require "utils"
--- local lsp_status = require("lsp-status")
 local fish_like_path = utils.fish_like_path
 local colors = utils.colors.bleed_purple
 
@@ -97,8 +96,7 @@ local setup = function()
       lualine_b = {},
       lualine_c = { filename },
       lualine_x = { "filetype" },
-      lualine_y = { "g:coc_status" },
-      -- lualine_y = {lsp_status.status},
+      lualine_y = { },
       lualine_z = { "location" },
     },
     inactive_sections = {
@@ -140,8 +138,8 @@ local setup = function()
           },
         },
       },
-      lualine_x = {},
-      lualine_y = {},
+      lualine_x = {"require'phoenix.utils.lsp'.get_attached_clients()"},
+      -- lualine_y = {"require'lsp-status'.status()"},
       lualine_z = { "branch" },
     },
     extensions = {},

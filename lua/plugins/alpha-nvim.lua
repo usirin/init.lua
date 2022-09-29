@@ -1,8 +1,10 @@
 local get_config = function()
-  return require("alpha.themes.startify").config
+  local config = require("alpha.themes.startify").config
+  return config
 end
 
-local setup = function()
+local setup = function(opts)
+  opts = opts or {}
   require("alpha").setup(get_config())
 end
 

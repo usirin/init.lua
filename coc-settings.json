@@ -61,6 +61,10 @@
 
   "stylua.styluaPath": "/opt/homebrew/bin/stylua",
 
+  "go.goplsOptions": {
+    "local": "code.justin.tv"
+  },
+
   "languageserver": {
     "golangci-lint-languageserver": {
       "command": "golangci-lint-langserver",
