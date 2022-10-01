@@ -13,7 +13,6 @@ if is_phoenix then
   require("settings").setup()
   require("colorscheme").setup()
 
-
   require("plugins.nvim-treesitter").setup()
   require("plugins.nvim-tree").setup()
   require("plugins.nvim-comment").setup()
@@ -28,7 +27,7 @@ if is_phoenix then
   require("plugins.indent-blankline").setup()
   require("plugins.alpha-nvim").setup()
   require("plugins.dressing").setup()
-  -- require("plugins.toggleterm").setup()
+  require("plugins.fidget").setup()
 
   require("plugins.mason").setup()
 else

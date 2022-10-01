@@ -46,7 +46,7 @@ local on_attach = function(client, bufnr)
       lsp.buf.format({
         filter = function(c)
           return c.name ~= "tsserver"
-        end
+        end,
       })
     end)
 
@@ -68,3 +68,4 @@ require("phoenix.lsp.eslint").setup(on_attach, capabilities)
 require("phoenix.lsp.null-ls").setup(on_attach)
 require("phoenix.lsp.sumneku_lua").setup(on_attach, capabilities)
 require("phoenix.lsp.tsserver").setup(on_attach)
+require("phoenix.lsp.golang").setup(on_attach, capabilities)
