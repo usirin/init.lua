@@ -35,11 +35,11 @@ local on_attach = function(client, bufnr)
     })
   end
 
-  vim.api.nvim_create_autocmd("CursorHold", {
-    command = "silent! lua vim.diagnostic.open_float()",
-    group = lsp_highlight_group,
-    buffer = bufnr,
-  })
+  -- vim.api.nvim_create_autocmd("CursorHold", {
+  --   command = "silent! lua vim.diagnostic.open_float()",
+  --   group = lsp_highlight_group,
+  --   buffer = bufnr,
+  -- })
 
   if client.supports_method("textDocument/formatting") then
     command(bufnr, "LspFormatting", function()

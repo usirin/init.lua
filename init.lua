@@ -5,12 +5,12 @@ require("impatient")
 if is_phoenix then
   require("phoenix")
 
+  require("settings").setup()
   require("plugins.nvim-cmp").setup()
 
   require("phoenix.lsp")
 
   require("keymappings").setup()
-  require("settings").setup()
   require("colorscheme").setup()
 
   require("plugins.nvim-treesitter").setup()

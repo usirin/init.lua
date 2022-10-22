@@ -28,15 +28,17 @@ M.setup = function()
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping(function() cmp.complete() end, { "i", "s" }),
+      ["<C-j>"] = cmp.mapping.select_next_item(),
+      ["<C-k>"] = cmp.mapping.select_prev_item(),
 
       ["<C-e>"] = cmp.mapping.abort(),
       ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
 
     sources = cmp.config.sources({
-      { name = "ultisnips", keyword_length = 2, max_item_count = 3 },
+      { name = "ultisnips", keyword_length = 2 },
       { name = "nvim_lsp" },
-      { name = "tmux" },
+      { name = "tmux", max_item_count = 5 },
       {
         name = "buffer",
         keyword_length = 3,
