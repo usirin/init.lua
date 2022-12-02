@@ -1,13 +1,14 @@
 -- vim.cmd([[highlight GitSignsChange guifg=yellow guibg=#11151c]])
 --
 local setup = function()
-  require("gitsigns").setup {
+  require("gitsigns").setup({
     signs = {
       add = { hl = "GitSignsAdd", text = "·", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
       change = { hl = "GitSignsChange", text = "·", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
       delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
       topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
       changedelete = { hl = "GitSignsChange", text = "·~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+      untracked = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     },
     numhl = false,
     linehl = false,
@@ -39,7 +40,7 @@ local setup = function()
     diff_opts = {
       internal = true,
     },
-  }
+  })
 end
 
 return {

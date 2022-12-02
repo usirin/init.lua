@@ -1,0 +1,54 @@
+extends typescript
+
+snippet sn_r_fc "create react component" b
+import * as React from "react";
+import { FC } from "react";
+
+interface Props {
+  $2
+}
+
+export const $1: FC<Props> = ({
+  ${2/(\w+):.*/$1/g},
+}) => {
+  $0
+};
+endsnippet
+
+snippet sn_tw_context "create a twilight react context manager" b
+import * as React from "react";
+import { FC, PropsWithChildren, useContext } from "react";
+import { createContext } from "twilight/core/utils/context";
+
+interface $1ContextValue {}
+
+interface Use$1ContextValueProps {}
+
+const use$1ContextValue = (
+  props: Use$1ContextValueProps,
+): $1ContextValue => {
+  return {
+    //
+  };
+};
+
+export const {
+  context: $1Context,
+  withContext: with$1Context,
+} = createContext<$1ContextValue>("$1Context", {
+  //
+});
+
+export const use$1Context = () => useContext($1Context);
+
+export const $1ContextManager: FC<
+  PropsWithChildren<$1ContextValue>
+> = ({ children, ...props }) => {
+  const value = use$1ContextValue(props);
+  return (
+    <$1Context.Provider value={value}>
+      {children}
+    </$1Context.Provider>
+  );
+};
+endsnippet

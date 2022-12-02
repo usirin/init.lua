@@ -62,10 +62,11 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 require("phoenix.lsp.eslint").setup(on_attach, capabilities)
 require("phoenix.lsp.null-ls").setup(on_attach)
 require("phoenix.lsp.sumneku_lua").setup(on_attach, capabilities)
 require("phoenix.lsp.tsserver").setup(on_attach)
 require("phoenix.lsp.golang").setup(on_attach, capabilities)
+require("phoenix.lsp.graphql").setup(on_attach, capabilities)

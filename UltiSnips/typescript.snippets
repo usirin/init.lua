@@ -1,0 +1,36 @@
+snippet s_arrow_func "Create an arrow function and assign it to a variable" b
+const ${1} = (${2}) => {
+	${3://}
+}
+endsnippet
+
+snippet interface "Create an interface" b
+interface ${1} ${2:extends ${3}} {
+	${4}: ${5};
+	${0}
+}
+endsnippet
+
+snippet () "create arrow func inline" w
+(${1})${2::void} => {
+	${3://}
+}
+endsnippet
+
+snippet sn_hook_test "create a hook test" b
+import { act } from "@testing-library/react-hooks";
+import { createHookTestFactory } from "@twitch/tachyon-test-utils";
+import { ${1} } from "${2}";
+
+describe($1, () => {
+  const setup = createHookTestFactory($1);
+	${0}
+});
+endsnippet
+
+
+snippet it "it block" b
+it("${1}", () => {
+	${0://}
+});
+endsnippet
