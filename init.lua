@@ -1,8 +1,9 @@
 require("impatient")
 
+require("settings").setup()
+
 require("phoenix")
 
-require("settings").setup()
 require("plugins.nvim-cmp").setup()
 
 require("phoenix.lsp")

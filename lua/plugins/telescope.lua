@@ -50,7 +50,7 @@ local setup_autocmds = function()
   vim.cmd("autocmd User TelescopePreviewerLoaded setlocal number")
 end
 
-local setup_keymaps = function()
+local setup_trigger_keymaps = function()
   utils.keymap("n", "<C-p>", ":<C-u>ProjectRootExe Telescope find_files<cr>")
 
   utils.keymap("n", "<C-t>", ":Telescope git_files<cr>")
@@ -69,7 +69,7 @@ local setup = function()
   setup_telescope()
   setup_extensions()
   setup_autocmds()
-  setup_keymaps()
+  setup_trigger_keymaps()
 end
 
 return {

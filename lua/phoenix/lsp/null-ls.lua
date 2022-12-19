@@ -15,6 +15,10 @@ local sources = {
       "resolvers" }
   }),
 
+  b.formatting.beautysh,
+
+  -- require("typescript.extensions.null-ls.code-actions"),
+
   -- b.formatting.eslint_d,
 
   -- b.diagnostics.eslint_d,
