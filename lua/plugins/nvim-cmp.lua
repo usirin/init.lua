@@ -1,11 +1,11 @@
 local cmp = require("cmp")
-local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+-- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 
 local fn = vim.fn
 
 local M = {}
 
-M.setup = function()
+local setup_cmp = function()
   cmp.setup({
     snippet = {
       expand = function(args)
@@ -20,14 +20,26 @@ M.setup = function()
 
     mapping = cmp.mapping.preset.insert({
       ["<Tab>"] = cmp.mapping(function(fallback)
-        cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+        -- cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
       end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
-        cmp_ultisnips_mappings.jump_backwards(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+        -- cmp_ultisnips_mappings.jump_backwards(fallback)
       end, { "i", "s" }),
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-Space>"] = cmp.mapping(function() cmp.complete() end, { "i", "s" }),
+      ["<C-Space>"] = cmp.mapping(function()
+        cmp.complete()
+      end, { "i", "s" }),
       ["<C-j>"] = cmp.mapping.select_next_item(),
       ["<C-k>"] = cmp.mapping.select_prev_item(),
 
@@ -36,26 +48,43 @@ M.setup = function()
     }),
 
     sources = cmp.config.sources({
-      { name = "ultisnips", keyword_length = 2 },
+      { name = "nvim_lsp_signature_help" },
       { name = "nvim_lsp" },
+      { name = "ultisnips", keyword_length = 3 },
       { name = "tmux", max_item_count = 5 },
       {
         name = "buffer",
         keyword_length = 3,
-        option = {
-          -- complete from visible buffers
-          get_bufnrs = function()
-            local bufs = {}
-            for _, win in ipairs(vim.api.nvim_list_wins()) do
-              bufs[vim.api.nvim_win_get_buf(win)] = true
-            end
-            return vim.tbl_keys(bufs)
-          end,
-        },
       },
       { name = "path" },
     }),
   })
+end
+
+local setup_search = function()
+  cmp.setup.cmdline({ "/", "?" }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = "buffer" },
+    },
+  })
+end
+
+local setup_exmode = function()
+  cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = "path" },
+    }, {
+      { name = "cmdline" },
+    }),
+  })
+end
+
+M.setup = function()
+  setup_cmp()
+  setup_search()
+  setup_exmode()
 end
 
 return M

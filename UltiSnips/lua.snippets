@@ -1,0 +1,23 @@
+snippet it "it block" b
+it("${1}", () => {
+	${0://}
+}
+endsnippet
+
+snippet sn_M "create and return a module" b
+local M = {}
+
+M.${0}
+
+return M
+endsnippet
+
+snippet sn_nvim_M "create and return a nvim module" b
+local M = {}
+
+M.setup = function()
+  ${0}
+end
+
+return M
+endsnippet

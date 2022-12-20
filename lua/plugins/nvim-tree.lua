@@ -1,8 +1,8 @@
-local utils = require "utils"
+local utils = require("utils")
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 local setup_nvim_tree = function()
-  require("nvim-tree").setup {
+  require("nvim-tree").setup({
     -- disables netrw completely
     disable_netrw = true,
     -- hijack netrw window on startup
@@ -32,26 +32,13 @@ local setup_nvim_tree = function()
         git_placement = "signcolumn",
         show = { git = true, folder = false, file = false },
         glyphs = {
-          default = "",
-          symlink = "",
-          bookmark = "",
-          folder = {
-            arrow_closed = "",
-            arrow_open = "",
-            default = "",
-            open = "",
-            empty = "",
-            empty_open = "",
-            symlink = "",
-            symlink_open = "",
-          },
           git = {
             unstaged = "·",
-            staged = "·",
+            staged = "✓",
             unmerged = "",
             renamed = "➜",
             untracked = "·",
-            deleted = "",
+            deleted = "-",
             ignored = "◌",
           },
         },
@@ -65,38 +52,38 @@ local setup_nvim_tree = function()
         custom_only = false,
         -- list of mappings to set on the tree manually
         list = {
-          { key = "<CR>", cb = tree_cb "edit" },
-          { key = "o", cb = tree_cb "edit" },
-          { key = "<2-LeftMouse>", cb = tree_cb "edit" },
-          { key = "<2-RightMouse>", cb = tree_cb "cd" },
-          { key = "<C-]>", cb = tree_cb "cd" },
-          { key = "<C-v>", cb = tree_cb "vsplit" },
-          { key = "<C-x>", cb = tree_cb "split" },
-          { key = "<C-t>", cb = tree_cb "tabnew" },
-          { key = "<", cb = tree_cb "prev_sibling" },
-          { key = ">", cb = tree_cb "next_sibling" }, -- ["<BS>"] = tree_cb("close_node"),
-          { key = "<S-CR>", cb = tree_cb "close_node" },
-          { key = "-", cb = tree_cb "close_node" },
-          { key = "<Tab>", cb = tree_cb "preview" },
-          { key = "I", cb = tree_cb "toggle_ignored" },
-          { key = "H", cb = tree_cb "toggle_dotfiles" },
-          { key = "R", cb = tree_cb "refresh" },
-          { key = "N", cb = tree_cb "create" },
-          { key = "d", cb = tree_cb "remove" },
-          { key = "r", cb = tree_cb "rename" },
-          { key = "<C-r>", cb = tree_cb "full_rename" },
-          { key = "x", cb = tree_cb "cut" },
-          { key = "c", cb = tree_cb "copy" },
-          { key = "p", cb = tree_cb "paste" },
-          { key = "[c", cb = tree_cb "prev_git_item" },
-          { key = "]c", cb = tree_cb "next_git_item" },
-          { key = "-", cb = tree_cb "dir_up" },
-          { key = "<backspace>", cb = tree_cb "dir_up" },
-          { key = "q", cb = tree_cb "close" },
+          { key = "<CR>", cb = tree_cb("edit") },
+          { key = "o", cb = tree_cb("edit") },
+          { key = "<2-LeftMouse>", cb = tree_cb("edit") },
+          { key = "<2-RightMouse>", cb = tree_cb("cd") },
+          { key = "<C-]>", cb = tree_cb("cd") },
+          { key = "<C-v>", cb = tree_cb("vsplit") },
+          { key = "<C-x>", cb = tree_cb("split") },
+          { key = "<C-t>", cb = tree_cb("tabnew") },
+          { key = "<", cb = tree_cb("prev_sibling") },
+          { key = ">", cb = tree_cb("next_sibling") }, -- ["<BS>"] = tree_cb("close_node"),
+          { key = "<S-CR>", cb = tree_cb("close_node") },
+          { key = "-", cb = tree_cb("close_node") },
+          { key = "<Tab>", cb = tree_cb("preview") },
+          { key = "I", cb = tree_cb("toggle_ignored") },
+          { key = "H", cb = tree_cb("toggle_dotfiles") },
+          { key = "R", cb = tree_cb("refresh") },
+          { key = "N", cb = tree_cb("create") },
+          { key = "d", cb = tree_cb("remove") },
+          { key = "r", cb = tree_cb("rename") },
+          { key = "<C-r>", cb = tree_cb("full_rename") },
+          { key = "x", cb = tree_cb("cut") },
+          { key = "c", cb = tree_cb("copy") },
+          { key = "p", cb = tree_cb("paste") },
+          { key = "[c", cb = tree_cb("prev_git_item") },
+          { key = "]c", cb = tree_cb("next_git_item") },
+          { key = "-", cb = tree_cb("dir_up") },
+          { key = "<backspace>", cb = tree_cb("dir_up") },
+          { key = "q", cb = tree_cb("close") },
         },
       },
     },
-  }
+  })
 end
 
 local setup_keymaps = function()

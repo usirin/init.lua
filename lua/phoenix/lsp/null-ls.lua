@@ -10,10 +10,19 @@ local sources = {
     end,
   }),
 
-  b.formatting.eslint_d,
+  b.formatting.goimports.with({
+    args = { "-srcdir", "$DIRNAME", "-local=code.justin.tv", "-w", "cmd", "errorutils", "internal", "loaders",
+      "resolvers" }
+  }),
 
-  b.diagnostics.eslint_d,
-  b.code_actions.eslint_d,
+  b.formatting.beautysh,
+
+  -- require("typescript.extensions.null-ls.code-actions"),
+
+  -- b.formatting.eslint_d,
+
+  -- b.diagnostics.eslint_d,
+  -- b.code_actions.eslint_d,
 }
 
 local M = {}

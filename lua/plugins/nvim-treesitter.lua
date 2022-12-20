@@ -1,4 +1,4 @@
-local utils = require "utils"
+local utils = require("utils")
 
 local setup_proto = function()
   local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
@@ -12,9 +12,13 @@ local setup_proto = function()
 end
 
 local setup_treesitter = function()
-  require("nvim-treesitter.configs").setup {
+  require("nvim-treesitter.configs").setup({
     highlight = { enable = true },
-    query_linter = { enable = true, use_virtual_text = true, lint_events = { "BufWrite", "CursorHold" } },
+    query_linter = {
+      enable = true,
+      use_virtual_text = true,
+      lint_events = { "BufWrite", "CursorHold" },
+    },
     playground = {
       enable = true,
       disable = {},
@@ -33,10 +37,11 @@ local setup_treesitter = function()
         show_help = "?",
       },
     },
-  }
+  })
 end
 
 local setup_keymaps = function()
+  utils.keymap("n", "L", ":lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>")
   utils.keymap("n", "L", ":TSHighlightCapturesUnderCursor<CR>")
 end
 

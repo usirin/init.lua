@@ -4,6 +4,9 @@ local M = {}
 M.setup = function(on_attach, capabilities)
   require("typescript").setup({
     server = {
+      init_options = {
+        maxTsServerMemory = 8192,
+      },
       on_attach = function(client, bufnr)
         on_attach(client, bufnr)
 

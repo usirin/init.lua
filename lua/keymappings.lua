@@ -12,6 +12,8 @@ local setup = function()
 
   map("n", "<leader><space>", ":nohlsearch<cr>")
   map("n", "<leader><leader>", "<C-^>")
+  -- cd into the file's directory for updating filetree
+  map("n", "<leader>cd", ":cd %:h<cr>")
 
   map("n", ";", ":")
   map("v", ";", ":")
