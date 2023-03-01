@@ -13,6 +13,28 @@ export const $1: FC<Props> = (${3:{}}) => {
 };
 endsnippet
 
+snippet sn_tw_r_test "create twilight react test" b
+import { createRenderTestFactory } from "@twitch/tachyon-test-utils";
+import { $2 } from "$1";
+
+describe("$2", () => {
+  const setup = createRenderTestFactory($2, () => ({}));
+
+  it("renders", () => {
+    const { screen } = setup();
+
+    //
+  });
+});
+endsnippet
+
+
+snippet sn_r_inline_fc "create inline react component" b
+export const $1: FC${2:<{ $3 }>} = (${4:{}}) => {
+  ${0:return null}
+};
+endsnippet
+
 snippet sn_tw_context "create a twilight react context manager" b
 import * as React from "react";
 import { FC, PropsWithChildren, useContext } from "react";
@@ -50,3 +72,5 @@ export const $1ContextManager: FC<
   );
 };
 endsnippet
+
+

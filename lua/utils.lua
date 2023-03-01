@@ -1,4 +1,4 @@
-local hsl_convert = require "lush.vivid.hsl.convert"
+local hsl_convert = require("lush.vivid.hsl.convert")
 local format = string.format
 local utils = {}
 
@@ -14,7 +14,7 @@ utils.exec = function(command)
   vim.api.nvim_exec(command, false)
 end
 utils.hsl_to_hex = function(h, s, l)
-  return hsl_convert.hsl_to_hex { h = h, s = s, l = l }
+  return hsl_convert.hsl_to_hex({ h = h, s = s, l = l })
 end
 
 local hsl = utils.hsl_to_hex
@@ -139,8 +139,8 @@ utils.get_mode = function(mode)
 end
 
 utils.check_back_space = function()
-  local col = vim.fn.col "." - 1
-  if col == 0 or vim.fn.getline("."):sub(col, col):match "%s" then
+  local col = vim.fn.col(".") - 1
+  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
     return true
   else
     return false
@@ -229,8 +229,9 @@ utils.slice_table = function(obj, start, finish)
 end
 
 local substitute_home = function(path)
-  return vim.fn.substitute(path, vim.fn.expand "$HOME", "~", "")
+  return vim.fn.substitute(path, vim.fn.expand("$HOME"), "~", "")
 end
+
 utils.substitute_home = substitute_home
 
 local shrink_path = function(path)
@@ -288,6 +289,20 @@ utils.print = function(...)
     args[i] = vim.inspect(args[i])
   end
   print(unpack(args))
+end
+
+utils.get_git_root = function()
+  local result = vim.fn.split(vim.fn.system("git rev-parse --show-toplevel"))[1]
+
+  if result == "fatal:" then
+    return nil
+  end
+
+  return result
+end
+
+utils.has_file = function(path)
+  return vim.fn.filereadable(path) == 1
 end
 
 return utils

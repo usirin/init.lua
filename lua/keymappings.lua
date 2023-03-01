@@ -5,6 +5,7 @@ local setup = function()
   vim.g.mapleader = ","
 
   map("n", "<leader>ev", ":e ~/.config/nvim/init.lua<CR>")
+  map("n", "<leader>SO", ":e ~/.config/nvim/init.lua<CR>")
   map("n", "<leader>ed", ":e ~/dotfiles/install.sh<CR>")
 
   map("i", "jj", "<Esc>")

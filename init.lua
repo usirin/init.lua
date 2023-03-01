@@ -27,5 +27,6 @@ require("plugins.dressing").setup()
 require("plugins.fidget").setup()
 require("plugins.trouble").setup()
 require("plugins.ultisnips").setup()
+require("plugins.fugitive").setup()
 
 require("plugins.mason").setup()

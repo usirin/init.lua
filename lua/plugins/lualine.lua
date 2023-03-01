@@ -1,4 +1,4 @@
-local utils = require "utils"
+local utils = require("utils")
 local fish_like_path = utils.fish_like_path
 local colors = utils.colors.bleed_purple
 
@@ -11,7 +11,7 @@ local file_status = function(is_modified)
 end
 
 local filename = function()
-  local path = fish_like_path(vim.fn.expand "%:p", 2)
+  local path = fish_like_path(vim.fn.expand("%:p"), 2)
   local status = file_status(vim.bo.modified)
 
   if #status == 0 then
@@ -23,7 +23,7 @@ end
 
 local fishpath = function(level)
   return function()
-    local path = fish_like_path(vim.fn.expand "%:p", level)
+    local path = fish_like_path(vim.fn.expand("%:p"), level)
     local status = file_status(vim.bo.modified)
 
     if #status == 0 then
@@ -32,6 +32,26 @@ local fishpath = function(level)
 
     return path .. " " .. status
   end
+end
+
+local codeowner_cache = {}
+
+local codeowner = function()
+  local root = utils.get_git_root()
+  if root == nil then
+    return ""
+  end
+
+  if not utils.has_file(root .. "/.github/CODEOWNERS") then
+    return ""
+  end
+
+  local ok, result = pcall(vim.fn.system, "github-codeowners who " .. vim.fn.expand("%"))
+  if not ok then
+    return ""
+  end
+
+  vim.pretty_print(result)
 end
 
 local dark_theme = {
@@ -76,7 +96,7 @@ local get_theme = function(bg)
 end
 
 local setup = function()
-  require("lualine").setup {
+  require("lualine").setup({
     options = {
       icons_enabled = true,
       globalstatus = true,
@@ -96,7 +116,7 @@ local setup = function()
       lualine_b = {},
       lualine_c = { filename },
       lualine_x = { "filetype" },
-      lualine_y = { },
+      lualine_y = {},
       lualine_z = { "location" },
     },
     inactive_sections = {
@@ -138,18 +158,19 @@ local setup = function()
           },
         },
       },
-      lualine_x = {"require'phoenix.utils.lsp'.get_attached_clients()"},
+      lualine_x = { "require'phoenix.utils.lsp'.get_attached_clients()" },
       -- lualine_y = {"require'lsp-status'.status()"},
-      lualine_z = { "branch" },
+      lualine_z = { "branch", },
+
     },
     extensions = {},
-  }
+  })
 end
 
-vim.cmd [[
+vim.cmd([[
 autocmd ColorScheme * lua require'plugins.lualine'.setup()
 autocmd OptionSet background lua require'plugins.lualine'.setup()
-]]
+]])
 
 return {
   setup = setup,

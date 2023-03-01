@@ -11,8 +11,9 @@ local sources = {
   }),
 
   b.formatting.goimports.with({
-    args = { "-srcdir", "$DIRNAME", "-local=code.justin.tv", "-w", "cmd", "errorutils", "internal", "loaders",
-      "resolvers" }
+    args = {
+      "-srcdir", "$DIRNAME", "-local=code.justin.tv", "-w", "cmd", "errorutils", "internal", "loaders", "resolvers"
+    }
   }),
 
   b.formatting.beautysh,

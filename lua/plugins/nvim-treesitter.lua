@@ -45,10 +45,19 @@ local setup_keymaps = function()
   utils.keymap("n", "L", ":TSHighlightCapturesUnderCursor<CR>")
 end
 
+local setup_folding = function()
+  vim.o.foldexpr    = "nvim_treesitter#foldexpr()"
+  -- vim.opt.fillchars = "fold: "
+  vim.wo.foldmethod = "expr"
+  vim.wo.foldlevel  = 99
+  -- vim.o.foldtext    = [[substitute(getline(v:foldstart),'\\\\t',repeat('\\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+end
+
 local setup = function()
   setup_proto()
   setup_treesitter()
   setup_keymaps()
+  setup_folding()
 end
 
 return {
